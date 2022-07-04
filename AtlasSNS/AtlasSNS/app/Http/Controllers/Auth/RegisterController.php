@@ -48,11 +48,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
         ]);
+        return $validator;
     }
 
     /**
@@ -78,8 +79,19 @@ class RegisterController extends Controller
     public function register(Request $request){
         if($request->isMethod('post')){//もしpost通信でリクエスト(この場合データ入力)が来たときに
             $data = $request->input();//そのデータの塊を$dataと仮称します
-
+        
+            $this->validator($data);//バリデーションに飛ぶ
+              if($validator->fails()){
+                return redirect('/')
+                            ->withInput()
+                            ->withErrors($validator);
+                //エラーだった時エラー文を出す
+             }
+                //エラーがない時は下の処理が動く
             $this->create($data);//上記の処理がなされて、$dataが作成された時それを$this->create(このページ内にあるcreateメソッド64-71)に取り出す
+
+            $request->session()->put('username', $request->input('username'));
+
             return redirect('added');
         }
         return view('auth.register');
@@ -88,4 +100,6 @@ class RegisterController extends Controller
     public function added(){
         return view('auth.added');
     }
+
+    
 }

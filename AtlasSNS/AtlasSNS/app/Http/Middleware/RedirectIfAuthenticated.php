@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
+            return redirect('top');//一回loginした人が再度login画面に入ろうとしてもtop画面に飛ばすようにした処理
         }
 
         return $next($request);
