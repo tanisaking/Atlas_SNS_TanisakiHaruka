@@ -30,6 +30,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+Route::group(['middleware' => 'auth'], function() {
 //投稿画面
 Route::get('/top','PostsController@index');
 //投稿処理
@@ -41,3 +42,7 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
+Route::get('/logout','Auth\LoginController@logout');
+
+});

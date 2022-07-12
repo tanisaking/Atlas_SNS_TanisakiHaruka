@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
+            'password_confirmation'=>'required|string|min:4',
         ]);
         return $validator;
     }
@@ -80,9 +81,9 @@ class RegisterController extends Controller
         if($request->isMethod('post')){//もしpost通信でリクエスト(この場合データ入力)が来たときに
             $data = $request->input();//そのデータの塊を$dataと仮称します
         
-            $this->validator($data);//バリデーションに飛ぶ
+            $validator=$this->validator($data);//バリデーションに飛ぶ
               if($validator->fails()){
-                return redirect('/')
+                return redirect('/register')
                             ->withInput()
                             ->withErrors($validator);
                 //エラーだった時エラー文を出す
