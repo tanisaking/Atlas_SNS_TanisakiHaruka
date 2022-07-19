@@ -22,16 +22,21 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+        <h1><a><img src="{{ asset('/images/atlas.png') }}"></a></h1>
             <div id="">
                 <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
+                    <p>{{ Auth::user()->username }}さん<img src="{{ asset('/images/icon1.png') }}"></p>
                 <div>
-                <ul>
+                    <!--ここからアコーディオンメニュー-->
+                <div class = "menu">
+                 <input type = "checkbox">
+                   <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
-                </ul>
+                   </ul>
+                </div>
+                    <!--ここまで-->
             </div>
         </div>
     </header>
