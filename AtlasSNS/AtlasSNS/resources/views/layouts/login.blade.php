@@ -8,6 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }} ">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -23,19 +24,17 @@
     <header>
         <div id = "head">
         <h1><a><img src="{{ asset('/images/atlas.png') }}"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{ Auth::user()->username }}さん<img src="{{ asset('/images/icon1.png') }}"></p>
-                <div>
                     <!--ここからアコーディオンメニュー-->
-                <div class = "menu">
-                 <input type = "checkbox">
-                   <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                   </ul>
-                </div>
+                        <div class="accordion-title js-accordion-title">
+                        <p>{{ Auth::user()->username }}さん</p><img src="{{ asset('/images/icon1.png') }}">
+                        </div>
+                            <div class="accordion-content">
+                                <ul>
+                                    <li><a href="/top">ホーム</a></li>
+                                    <li><a href="/profile">プロフィール</a></li>
+                                    <li><a href="/logout">ログアウト</a></li>
+                                </ul>
+                            </div>
                     <!--ここまで-->
             </div>
         </div>
@@ -63,7 +62,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/menu.js') }}"></script>
 </body>
 </html>
