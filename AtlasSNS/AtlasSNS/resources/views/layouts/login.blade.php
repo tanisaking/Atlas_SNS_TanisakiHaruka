@@ -26,7 +26,8 @@
         <h1><a><img src="{{ asset('/images/atlas.png') }}"></a></h1>
                     <!--ここからアコーディオンメニュー-->
                         <div class="accordion-title js-accordion-title">
-                        <p>{{ Auth::user()->username }}さん</p><img src="{{ asset('/images/icon1.png') }}">
+                            <p>{{ Auth::user()->username }}さん</p>
+                            <img src="{{ asset('/images/icon1.png') }}">
                         </div>
                             <div class="accordion-content">
                                 <ul>
@@ -36,7 +37,6 @@
                                 </ul>
                             </div>
                     <!--ここまで-->
-            </div>
         </div>
     </header>
     <div id="row">
