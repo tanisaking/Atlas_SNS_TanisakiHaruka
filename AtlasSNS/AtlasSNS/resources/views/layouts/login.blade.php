@@ -8,7 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }} ">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }} ">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -23,11 +23,13 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="{{ asset('/images/atlas.png') }}"></a></h1>
+        <h1><a herf="{{ url('/top') }}"><img src="{{ asset('/images/atlas.png') }}"></a></h1>
                     <!--ここからアコーディオンメニュー-->
                         <div class="accordion-title js-accordion-title">
-                            <p>{{ Auth::user()->username }}さん</p>
-                            <img src="{{ asset('/images/icon1.png') }}">
+                            <p class="name">{{ Auth::user()->username }}さん</p>
+                            <div class="image_1">
+                            <img src="{{ asset('/images/icon1.png') }}"widht = '50' height = '50'>
+                            </div>
                         </div>
                             <div class="accordion-content">
                                 <ul>
@@ -63,6 +65,6 @@
     <footer>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="{{ asset('js/menu.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
 </body>
 </html>

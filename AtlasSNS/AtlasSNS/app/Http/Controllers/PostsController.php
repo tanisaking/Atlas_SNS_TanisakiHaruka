@@ -30,12 +30,12 @@ class PostsController extends Controller
         //}
 
         //以下に登録処理を記述　(Eloquentモデル)
-          $posts = new Post;
-          $posts->post_content = $request->post_content;
-          $posts->post_id = Auth::id();//ここでログインしているユーザーidを登録
-          $posts->save();
+            $posts = new Post;
+            $posts->post_content = $request->post_content;
+            $posts->post_id = Auth::id();//ここでログインしているユーザーidを登録
+            $posts->save();
 
-          return redirect('/top');
+            return redirect('/top');
 
     }
 }

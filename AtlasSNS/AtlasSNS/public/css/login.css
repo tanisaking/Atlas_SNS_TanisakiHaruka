@@ -4,6 +4,39 @@
     position: relative;
 }
 
+#side-bar  {
+    position: absolute;
+    left: 80%;
+    bottom: 50%;
+}
+
+p.name {
+    position: absolute;
+    left: 82%;
+    top: 40%
+}
+
+.image_1 {
+    text-align: right;
+}
+
+.image_2 {
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+
+.text_1 {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+}
+
+.image_3 {
+    position: absolute;
+    left: 60%;
+}
+
 .accordion-container {
     position: relative;
     width: 100%; 
@@ -61,6 +94,7 @@ i:active,
     padding-left: 2.3125em;
     border:1px solid;
     left:80%;
+    background-color: white;
 }
 
 .accordion-conteiner {

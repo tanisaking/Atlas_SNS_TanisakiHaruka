@@ -5,15 +5,23 @@
 <!--バリデーションエラーの表示-->
 
 <!--投稿フォーム-->
-<form action = "{{ url('top') }}" method = "POST" class = "form-horizontal">
+<form action = "{{ url('posts') }}" method = "POST" class = "form-horizontal">
 <!--投稿の本文-->
-    <div>
-        <img src="{{ asset('/images/icon1.png') }}">
-        <input type = "text" name = "post_cintent" placeholder = "投稿内容を入力してください。">
+<div class="form-group">
+    <div class="image_2">
+        <img src="{{ asset('/images/icon1.png') }}"widht = '50' height = '50'></div>
+    <div class="text_1">
+        <input type = "text" name = "post_cintent" placeholder = "投稿内容を入力してください。"></div>
     </div>
 <div>
 <!--登録ボタン-->
-<button type="submit"> <img src="{{ asset('/images/post.png' ) }}" height = '80' width = '100'> </button>
+<div class="form-group">
+    <div class="image_3">
+        <img src="{{ asset('/images/post.png' ) }}"width = '100' height = '100' > 
+    </div>
 </div>
+
+<!--全ての投稿リスト-->
+<div class="card" style="width: 18rem;">
 
 @endsection

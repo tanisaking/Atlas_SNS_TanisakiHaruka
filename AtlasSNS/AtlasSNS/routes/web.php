@@ -34,7 +34,7 @@ Route::group(['middleware' => 'auth'], function() {
 //投稿画面
 Route::get('/top','PostsController@index');
 //投稿処理
-Route::post('/top','PostsController@store');
+Route::post('posts','PostsController@store');
 
 Route::get('/profile','UsersController@profile');
 
