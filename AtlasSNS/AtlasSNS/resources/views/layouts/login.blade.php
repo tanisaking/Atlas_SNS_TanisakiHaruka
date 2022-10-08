@@ -23,7 +23,11 @@
 <body>
     <header>
         <div id = "head">
+<<<<<<< HEAD
         <h1><a href="/top"><img src="{{ asset('/images/atlas.png') }}"widht = '50' height = '50'></a></h1>
+=======
+        <h1><a herf="{{ url('/top') }}"><img src="{{ asset('/images/atlas.png') }}"></a></h1>
+>>>>>>> ee2381c654956ba3fbc9be166ea98cb6028ca2a9
                     <!--ここからアコーディオンメニュー-->
                         <div class="accordion-title js-accordion-title">
                             <p class="name">{{ Auth::user()->username }}さん</p>
