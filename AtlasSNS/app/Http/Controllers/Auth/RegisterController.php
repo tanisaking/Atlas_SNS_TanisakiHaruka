@@ -48,11 +48,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
+        $validator = Validator::make($data, [
             'username' => 'required|string|max:255',
             'mail' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:4|confirmed',
+            'password_confirmation'=>'required|string|min:4',
         ]);
+        return $validator;
     }
 
     /**
@@ -61,10 +63,10 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data)//$dataで送られてきたデータを並べる
     {
-        return User::create([
-            'username' => $data['username'],
+        return User::create([//（User＝ユーザーテーブル)にユーザー情報の新規作成
+            'username' => $data['username'],//以下データの入れ込み指示
             'mail' => $data['mail'],
             'password' => bcrypt($data['password']),
         ]);
@@ -76,10 +78,21 @@ class RegisterController extends Controller
     // }
 
     public function register(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->input();
+        if($request->isMethod('post')){//もしpost通信でリクエスト(この場合データ入力)が来たときに
+            $data = $request->input();//そのデータの塊を$dataと仮称します
+        
+            $validator=$this->validator($data);//バリデーションに飛ぶ
+              if($validator->fails()){
+                return redirect('/register')
+                            ->withInput()
+                            ->withErrors($validator);
+                //エラーだった時エラー文を出す
+             }
+                //エラーがない時は下の処理が動く
+            $this->create($data);//上記の処理がなされて、$dataが作成された時それを$this->create(このページ内にあるcreateメソッド64-71)に取り出す
 
-            $this->create($data);
+            $request->session()->put('username', $request->input('username'));
+
             return redirect('added');
         }
         return view('auth.register');
@@ -88,4 +101,6 @@ class RegisterController extends Controller
     public function added(){
         return view('auth.added');
     }
+
+    
 }
