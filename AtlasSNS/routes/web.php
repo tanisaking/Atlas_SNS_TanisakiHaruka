@@ -40,8 +40,13 @@ Route::get('/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
 
+<<<<<<< HEAD
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
+=======
+Route::get('/follow-list','PostsController@index');
+Route::get('/follower-list','PostsController@index');
+>>>>>>> a524951f82bb5d2b6802de31eea57025fcda105b
 
 Route::get('/logout','Auth\LoginController@logout');
 
