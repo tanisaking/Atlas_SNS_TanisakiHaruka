@@ -35,13 +35,17 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/top','PostsController@index');
 //投稿処理
 Route::post('posts','PostsController@store');
+//更新処理
+Route::get('/post/{id}/update-form','PostsController@updateForm');
+//削除処理
+Route::get('/post/{id}/delete','PostsController@delete');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','FollowsController@followList');
+Route::get('/follower-list','FollowsController@followerList');
 
 Route::get('/logout','Auth\LoginController@logout');
 
