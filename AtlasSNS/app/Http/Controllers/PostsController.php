@@ -15,11 +15,7 @@ class PostsController extends Controller
     {
         //全ての投稿を取得
         $posts = Post::get();//Postテーブルが情報をgetした時値を$postとして入手する
-<<<<<<< HEAD
         //dd($posts);
-=======
-
->>>>>>> a524951f82bb5d2b6802de31eea57025fcda105b
         return view('posts.index',[
             'posts' => $posts
         ]);
@@ -42,15 +38,29 @@ class PostsController extends Controller
 
         //以下に登録処理を記述　(Eloquentモデル)
             $posts = new Post;//新しい投稿を$postとし
-<<<<<<< HEAD
             $posts->post = $request->post;//index.blade.phpにてpostと名前のついた値を$requesutで引き出してpostテーブルに登録
-=======
-            $posts->post = $request->post;//投稿をpostテーブルに
->>>>>>> a524951f82bb5d2b6802de31eea57025fcda105b
             $posts->user_id = Auth::id();//ここでログインしているユーザーidを登録
             $posts->save();
 
             return redirect('/top');
 
     }
+
+    public function updateForm($post)
+    {
+        $post = \DB::table('posts')
+            ->where('id',$id)
+            ->first();
+        return view('posts.index');
+    }
+
+    public function delete($id)
+    {
+        \DB::table('posts')
+            ->where('id',$id)
+            ->delete();
+
+        return redirect('/top');
+    }
+
 }

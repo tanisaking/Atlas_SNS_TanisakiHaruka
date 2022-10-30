@@ -20,29 +20,11 @@ p.name {
     text-align: right;
 }
 
-<<<<<<< HEAD
 
 
 .image_3 {
     position: absolute;
     left: 70%;
-=======
-.image_2 {
-    position: absolute;
-    left: 10%;
-    top: 30%;
-}
-
-.text_1 {
-    position: absolute;
-    left: 20%;
-    top: 30%;
-}
-
-.image_3 {
-    position: absolute;
-    left: 60%;
->>>>>>> a524951f82bb5d2b6802de31eea57025fcda105b
 }
 
 .accordion-container {
