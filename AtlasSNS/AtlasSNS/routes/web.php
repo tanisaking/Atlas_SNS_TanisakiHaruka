@@ -37,9 +37,9 @@ Route::get('/top','PostsController@index');
 Route::post('posts','PostsController@store');
 
 //更新画面
-Route::get('/post/{id}/update-form','PostsController@update');
+Route::post('/top','PostsController@update');
 //更新処理
-Route::post('/post/{id}/update-form','PostsController@updateForm');
+Route::get('/post/{id}/update-form','PostsController@updateForm');
 
 //削除処理
 Route::get('/post/{id}/delete','PostsController@delete');

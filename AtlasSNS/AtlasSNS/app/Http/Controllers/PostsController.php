@@ -14,7 +14,7 @@ class PostsController extends Controller
     public function index()
     {
         //全ての投稿を取得
-        $posts = Post::get();//Postテーブルが情報をgetした時値を$postとして入手する
+        $posts = Post::with('user')->get();//Postテーブルが情報をgetした時値を$postとして入手する
         //dd($posts);
         return view('posts.index',[
             'posts' => $posts
@@ -46,19 +46,24 @@ class PostsController extends Controller
 
     }
 
-    public function updateForm($post)
+    public function updateForm($id)
     {
         $post = \DB::table('posts')
-            ->where('post',$post)
+            ->where('id',$id)
             ->first();
+        return view('posts.index', compact('post'));
     }
 
-    public function update(Request $request){
-        $posts = new Post;//新しい投稿を$postとし
-            $posts->post = $request->post;//index.blade.phpにてpostと名前のついた値を$requesutで引き出してpostテーブルに登録
-            $posts->user_id = $request->post_id;//ここでログインしているユーザーidを登録
-            $posts->save();
-        return view('posts.index');
+    public function update(Request $request)
+    {
+        $id = $request->input('post_id');
+        $up_post = $request->input('post');
+        \DB::table('posts')
+            ->where('id',$id)
+            ->update(
+                ['post' => $up_post]
+            );
+        return redirect('/top');
     }
 
     public function delete($id)
