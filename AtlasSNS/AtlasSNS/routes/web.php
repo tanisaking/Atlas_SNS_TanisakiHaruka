@@ -35,18 +35,19 @@ Route::group(['middleware' => 'auth'], function() {
 Route::get('/top','PostsController@index');
 //投稿処理
 Route::post('posts','PostsController@store');
-
 //更新画面
 Route::post('/top','PostsController@update');
 //更新処理
 Route::get('/post/{id}/update-form','PostsController@updateForm');
-
 //削除処理
 Route::get('/post/{id}/delete','PostsController@delete');
 
 Route::get('/profile','UsersController@profile');
 
+//ユーザー一覧の表示
 Route::get('/search','UsersController@search');
+//ユーザ検索
+Route::post('/search','UsersController@index');
 
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
