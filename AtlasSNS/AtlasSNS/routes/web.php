@@ -51,10 +51,10 @@ Route::post('/search','UsersController@index');
 
 Route::get('/follow-list','FollowsController@followList');
 Route::get('/follower-list','FollowsController@followerList');
+
 //フォローボタン
-Route::post('/search','FollowsController@show');
-Route::post('users/{user}/follow','FollowsController@follow');
-Route::delete('users/{user}/unfollow','FollowsController@unfollow');
+Route::post('/follow','FollowsController@follow');
+Route::delete('/unfollow','FollowsController@unfollow');
 
 
 Route::get('/logout','Auth\LoginController@logout');

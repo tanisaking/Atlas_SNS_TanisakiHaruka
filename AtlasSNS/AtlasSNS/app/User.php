@@ -30,6 +30,7 @@ class User extends Authenticatable
     public function posts(){//1対多の「多」側なので複数形
         return $this->hasMany('App\Post');
     }
+    //followテーブルとのリレーション
     //フォロワー→フォロー
     public function followUsers(){
         return $this->belongsToMany('App\User','follows','followed_id','following_id');
@@ -49,10 +50,10 @@ class User extends Authenticatable
     }
     //フォローしているか
     public function isFollowing($user_id){
-        return (boolean) $this->follows()->where('follows','followed_id',$user_id)->first(['id']);
+        return (boolean) $this->follows()->where('followed_id','=',$user_id)->first();
     }
     //フォローされているか
     public function isFollowed($user_id){
-        return (boolean) $this->followers()->where('follows','following_id',$user_id)->first(['id']);
+        return (boolean) $this->followers()->where('following_id','=',$user_id)->first();
     }
 }

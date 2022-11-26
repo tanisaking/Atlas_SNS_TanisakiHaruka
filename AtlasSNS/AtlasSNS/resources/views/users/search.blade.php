@@ -12,8 +12,7 @@
         @foreach ($users as $user)
         <li>{{ $user->username }}</li>
         <!--フォローボタン-->
-        <div class="d-flex justify-cntent-end flex-grow-1">
-            @if(Auth::id() != $user_flg)
+        <div>
             @if(Auth::user()->isFollowing($user->id))
                 <form action = "{{ route('unfollow',['user' => $user->id])}}" method="POST">
                     {{ csrf_field() }}
@@ -27,8 +26,8 @@
 
                     <button type="submit" class="btn btn-primary">フォローする</button>
             @endif
-            @endif
         @endforeach
+        </div>
     </ol>
 </div>
 
