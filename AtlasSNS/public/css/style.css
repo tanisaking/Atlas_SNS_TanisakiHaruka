@@ -14,10 +14,10 @@ header{
     flex-flow: row wrap;
 }
 #container{
-    flex: 0 0 80%;
+    width: 80%;
 }
 #side-bar{
-    flex: 0 0 19%;
+    width: 19%;
     border-left: 1px solid #727272;
 }
 /*モーダル*/

@@ -14,7 +14,7 @@ class PostsController extends Controller
     public function index()
     {
         //全ての投稿を取得
-        $posts = Post::get();//Postテーブルが情報をgetした時値を$postとして入手する
+        $posts = Post::with('user')->get();//Postテーブルが情報をgetした時値を$postとして入手する
         //dd($posts);
         return view('posts.index',[
             'posts' => $posts
@@ -46,12 +46,24 @@ class PostsController extends Controller
 
     }
 
-    public function updateForm($post)
+    public function updateForm($id)
     {
         $post = \DB::table('posts')
             ->where('id',$id)
             ->first();
-        return view('posts.index');
+        return view('posts.index', compact('post'));
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('post_id');
+        $up_post = $request->input('post');
+        \DB::table('posts')
+            ->where('id',$id)
+            ->update(
+                ['post' => $up_post]
+            );
+        return redirect('/top');
     }
 
     public function delete($id)

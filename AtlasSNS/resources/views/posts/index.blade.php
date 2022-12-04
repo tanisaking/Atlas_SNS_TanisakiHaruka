@@ -12,9 +12,10 @@
                 <input type = "text" name = "post" placeholder = "投稿内容を入力してください。"></div><!--name = "post"が投稿の名前として送信されている-->
                     <!--登録ボタン--> 
                         <div class="image_3">
-                            <button type="submit">
-                    <img src="{{ asset('/images/post.png' ) }}"width = '100' height = '100' >
-            </button>
+                          <button type="submit" class="post_btn">
+                            <img src="{{ asset('/images/post.png' ) }}"width = '100' height = '100' >
+                          </button>
+                        </div>
         </div>
     </div>
 </form>
@@ -36,12 +37,12 @@
             @endforeach
             </tbody>
         </table>
-
+</div>
 
     <!-- モーダルの中身 -->
     <div class="modal js-modal">
         <div class="modal_bg js-modal-close"></div>
-        <div class="modal-content">
+        <div class="modal_content">
             <form action="" method="post">
                 <textarea name="post" class="modal_post"></textarea>
                 <input type="hidden" name="post_id" class="modal_id" value="">
@@ -49,7 +50,7 @@
                 {{ csrf_field() }}
             </form>
             <a class="js-modal-close" href="">閉じる</a>
+        </div>
     </div>
-</div>
 
 @endsection

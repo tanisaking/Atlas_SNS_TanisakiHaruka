@@ -5,7 +5,6 @@
 }
 
 #side-bar  {
-    position: absolute;
     left: 80%;
     bottom: 50%;
 }
@@ -22,9 +21,13 @@ p.name {
 
 
 
-.image_3 {
+/* .image_3 {
     position: absolute;
-    left: 70%;
+    left: 70%; */
+/* } */
+.post_btn{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
 .accordion-container {

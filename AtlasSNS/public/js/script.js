@@ -1,8 +1,8 @@
 $(function(){
     $('.js-modal-open').on('click',function(){
         $('.js-modal').fadeIn();
-        var post = $(this).after('post');
-        var post_id = $(this).after('post_id');
+        var post = $(this).attr('post');
+        var post_id = $(this).attr('post_id');
 
         $('.modal_post').text(post);
         $('.modal_id').val(post_id);
