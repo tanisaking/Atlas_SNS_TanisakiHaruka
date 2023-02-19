@@ -10,7 +10,7 @@
         <div class="image_2">
             <img src="{{ asset('/images/icon1.png') }}"widht = '50' height = '50'>
                 <input type = "text" name = "post" placeholder = "投稿内容を入力してください。"></div><!--name = "post"が投稿の名前として送信されている-->
-                    <!--登録ボタン--> 
+                    <!--登録ボタン-->
                         <div class="image_3">
                           <button type="submit" class="post_btn">
                             <img src="{{ asset('/images/post.png' ) }}"width = '100' height = '100' >
